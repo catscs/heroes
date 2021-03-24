@@ -1,0 +1,17 @@
+mat-list-item {
+  color: #fff;
+  mat-icon {
+    color: #fff;
+  }
+  a,
+  a:link,
+  a:visited,
+  a:active {
+    color: white !important;
+    font-size: 14px;
+    width: 100%;
+  }
+}
+.activeLink {
+  background-color: #b290f0;
+}
