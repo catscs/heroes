@@ -16,10 +16,12 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "es2020",
-    "lib": [
-      "es2018",
-      "dom"
-    ]
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "@hero/*": ["src/app/heroes/*"],
+      "@shared/*": ["src/app/shared/*"],
+      "@dashboard/*": ["src/app/dashboard/*"]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

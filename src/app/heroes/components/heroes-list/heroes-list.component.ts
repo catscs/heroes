@@ -1,7 +1,7 @@
-import { Hero } from './../../models/hero.model';
-import { HeroService } from './../../services/hero.service';
 import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
+import { Hero } from '@hero/models/hero.model';
+import { HeroService } from '@hero/services/hero.service';
 
 @Component({
   selector: 'hr-heroes-list',
