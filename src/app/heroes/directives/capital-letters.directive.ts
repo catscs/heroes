@@ -1,10 +1,12 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[hrCapitalLetters]'
+  selector: '[hrCapitalLetters]',
 })
 export class CapitalLettersDirective {
+  constructor(private el: ElementRef) {}
 
-  constructor() { }
-
+  @HostListener('keyup') onKeyUp = () => {
+    this.el.nativeElement.style.textTransform = 'uppercase';
+  };
 }

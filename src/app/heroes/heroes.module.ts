@@ -1,6 +1,7 @@
 import { HeroService } from './services/hero.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HeroesRoutingModule } from '@hero/heroes-routing.module';
 import { HeroesListComponent } from '@hero/components/heroes-list/heroes-list.component';
@@ -18,7 +19,6 @@ import { FormComponent } from '@hero/components/form/form.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatPaginatorModule } from '@angular/material/paginator';
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,10 +27,12 @@ import { FormsModule } from '@angular/forms';
     CapitalLettersDirective,
     HeroFormComponent,
     FormComponent,
+    CapitalLettersDirective,
   ],
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     HeroesRoutingModule,
     MatTableModule,
     MatButtonModule,
