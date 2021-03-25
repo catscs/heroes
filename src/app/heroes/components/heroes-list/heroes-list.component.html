@@ -1,9 +1,19 @@
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
 <h1>List Heroes</h1>
 <div fxLayout fxLayoutAlign="end center">
-  <hr-hero-search></hr-hero-search>
+  <hr-hero-search (searchHero)="searchHero($event)"></hr-hero-search>
 </div>
-
-<div class="mat-elevation-z8" *ngIf="dataSource">
+<div
+  *ngIf="message"
+  [ngClass]="{
+    alert: message,
+    'alert-success': message.type === 'success',
+    'alert-danger': message.type === 'error'
+  }"
+>
+  {{ message.text }}
+</div>
+<div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef>ID</th>
@@ -15,17 +25,37 @@
       <td mat-cell *matCellDef="let element">{{ element.name }}</td>
     </ng-container>
 
-    <ng-container matColumnDef="power">
-      <th mat-header-cell *matHeaderCellDef>Power</th>
-      <td mat-cell *matCellDef="let element">{{ element.power }}</td>
+    <ng-container matColumnDef="publisher">
+      <th mat-header-cell *matHeaderCellDef>Publisher</th>
+      <td mat-cell *matCellDef="let element">{{ element.publisher }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="alterEgo">
+      <th mat-header-cell *matHeaderCellDef>Alter Ego</th>
+      <td mat-cell *matCellDef="let element">{{ element.alterEgo }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="firstAppearance">
+      <th mat-header-cell *matHeaderCellDef>First Appearance</th>
+      <td mat-cell *matCellDef="let element">{{ element.firstAppearance }}</td>
     </ng-container>
 
     <ng-container matColumnDef="actions">
       <th class="center" mat-header-cell *matHeaderCellDef>Actions</th>
       <td class="center" mat-cell *matCellDef="let row" width="15%">
-        <button mat-raised-button>Edit</button>
-        <button mat-raised-button color="warn">Delete</button>
-        <button mat-raised-button color="primary">Add Hero</button>
+        <button mat-raised-button [routerLink]="['/heroes/form', row.id]">
+          Edit
+        </button>
+        <button mat-raised-button color="primary" routerLink="/heroes/form">
+          Add
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          (click)="clickDeleteHero(row.id)"
+        >
+          Delete
+        </button>
       </td>
     </ng-container>
 
@@ -33,8 +63,9 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 
-  <!-- <mat-paginator
+  <mat-paginator
+    #scheduledOrdersPaginator
     [pageSizeOptions]="[5, 10, 20]"
     showFirstLastButtons
-  ></mat-paginator> -->
+  ></mat-paginator>
 </div>

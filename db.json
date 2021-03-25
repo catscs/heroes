@@ -1,0 +1,144 @@
+{
+  "heroes": [
+    {
+      "id": 1,
+      "name": "Batman",
+      "publisher": "DC Comics",
+      "alterEgo": "Bruce Wayne",
+      "firstAppearance": "Detective Comics #27"
+    },
+    {
+      "id": 2,
+      "name": "Superman",
+      "publisher": "DC Comics",
+      "alterEgo": "Kal-El",
+      "firstAppearance": "Action Comics #1"
+    },
+    {
+      "id": 3,
+      "name": "Flash",
+      "publisher": "DC Comics",
+      "alterEgo": "Jay Garrick",
+      "firstAppearance": "Flash Comics #1"
+    },
+    {
+      "id": 4,
+      "name": "Green Lantern",
+      "publisher": "DC Comics",
+      "alterEgo": "Alan Scott",
+      "firstAppearance": "All-American Comics #16"
+    },
+    {
+      "id": 5,
+      "name": "Green Arrow",
+      "publisher": "DC Comics",
+      "alterEgo": "Oliver Queen",
+      "firstAppearance": "More Fun Comics #73"
+    },
+    {
+      "id": 6,
+      "name": "Wonder Woman",
+      "publisher": "DC Comics",
+      "alterEgo": "Princess Diana",
+      "firstAppearance": "All Star Comics #8"
+    },
+    {
+      "id": 7,
+      "name": "Martian Manhunter",
+      "publisher": "DC Comics",
+      "alterEgo": "J'onn J'onzz",
+      "firstAppearance": "Detective Comics #225"
+    },
+    {
+      "id": 8,
+      "name": "Robin/Nightwing",
+      "publisher": "DC Comics",
+      "alterEgo": "Dick Grayson",
+      "firstAppearance": "Detective Comics #38"
+    },
+    {
+      "id": 9,
+      "name": "Blue Beetle",
+      "publisher": "DC Comics",
+      "alterEgo": "Dan Garret",
+      "firstAppearance": "Mystery Men Comics #1"
+    },
+    {
+      "id": 10,
+      "name": "Black Canary",
+      "publisher": "DC Comics",
+      "alterEgo": "Dinah Drake",
+      "firstAppearance": "Flash Comics #86"
+    },
+    {
+      "id": 11,
+      "name": "Spider Man",
+      "publisher": "Marvel Comics",
+      "alterEgo": "Peter Parker",
+      "firstAppearance": "Amazing Fantasy #15"
+    },
+    {
+      "id": 12,
+      "name": "Captain America",
+      "publisher": "Marvel Comics",
+      "alterEgo": "Steve Rogers",
+      "firstAppearance": "Captain America Comics #1"
+    },
+    {
+      "id": 13,
+      "name": "Iron Man",
+      "publisher": "Marvel Comics",
+      "alterEgo": "Tony Stark",
+      "firstAppearance": "Tales of Suspense #39"
+    },
+    {
+      "id": 14,
+      "name": "Thor",
+      "publisher": "Marvel Comics",
+      "alterEgo": "Thor Odinson",
+      "firstAppearance": "Journey into Myster #83"
+    },
+    {
+      "id": 15,
+      "name": "Hulk",
+      "publisher": "Marvel Comics",
+      "alterEgo": "Bruce Banner",
+      "firstAppearance": "The Incredible Hulk #1"
+    },
+    {
+      "id": 16,
+      "name": "Wolverine",
+      "publisher": "Marvel Comics",
+      "alterEgo": "James Howlett",
+      "firstAppearance": "The Incredible Hulk #180"
+    },
+    {
+      "id": 17,
+      "name": "Daredevil",
+      "publisher": "Marvel Comics",
+      "alterEgo": "Matthew Michael Murdock",
+      "firstAppearance": "Daredevil #1"
+    },
+    {
+      "id": 18,
+      "name": "Hawkeye",
+      "publisher": "Marvel Comics",
+      "alterEgo": "Clinton Francis Barton",
+      "firstAppearance": "Tales of Suspense #57"
+    },
+    {
+      "id": 19,
+      "name": "Cyclops",
+      "publisher": "Marvel Comics",
+      "alterEgo": "Scott Summers",
+      "firstAppearance": "X-Men #1"
+    },
+    {
+      "id": 20,
+      "name": "Silver Surfer",
+      "publisher": "Marvel Comics",
+      "alterEgo": "Norrin Radd",
+      "firstAppearance": "The Fantastic Four #48"
+    }
+  ]
+}

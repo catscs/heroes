@@ -1,6 +1,8 @@
 <mat-form-field>
   <mat-icon matPrefix>search</mat-icon>
   <input
+    [(ngModel)]="search"
+    (keydown.enter)="handleChange()"
     matInput
     type="search"
     placeholder="search here"

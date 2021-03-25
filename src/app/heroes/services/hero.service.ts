@@ -1,27 +1,27 @@
+import { environment } from './../../../environments/environment';
 import { Hero } from '@hero/models/hero.model';
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs/internal/Observable';
+import { filter, map } from 'rxjs/operators';
 
 @Injectable()
 export class HeroService {
-  heroes: Hero[] = [
-    {
-      id: 1,
-      name: 'Superman',
-      power: 'Volar',
-    },
-    {
-      id: 2,
-      name: 'Batman',
-      power: 'Volar',
-    },
-    {
-      id: 3,
-      name: 'Spiderman',
-      power: 'Volar',
-    },
-  ];
+  constructor(private http: HttpClient) {}
 
-  getAllHeroes = (): Hero[] => {
-    return this.heroes;
+  getAllHeroes = (): Observable<Hero[]> => {
+    const url = `${environment.apiUrl}/heroes`;
+    return this.http.get<Hero[]>(url);
+  };
+
+  getSearchHeroes = (name: string): Observable<Hero[]> => {
+    const url = `${environment.apiUrl}/heroes`;
+    return this.http
+      .get<Hero[]>(url)
+      .pipe(
+        map((hero) =>
+          hero.filter((h) => h.name.toLowerCase().includes(name.toLowerCase()))
+        )
+      );
   };
 }
