@@ -24,4 +24,9 @@ export class HeroService {
         )
       );
   };
+
+  deleteHero = (id: number): Observable<void> => {
+    const url = `${environment.apiUrl}/heroes/${id}`;
+    return this.http.delete<void>(url);
+  };
 }

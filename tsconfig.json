@@ -20,7 +20,8 @@
     "paths": {
       "@hero/*": ["src/app/heroes/*"],
       "@shared/*": ["src/app/shared/*"],
-      "@dashboard/*": ["src/app/dashboard/*"]
+      "@dashboard/*": ["src/app/dashboard/*"],
+      "@core/*": ["src/app/core/*"]
     }
   },
   "angularCompilerOptions": {

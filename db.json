@@ -1,41 +1,6 @@
 {
   "heroes": [
     {
-      "id": 1,
-      "name": "Batman",
-      "publisher": "DC Comics",
-      "alterEgo": "Bruce Wayne",
-      "firstAppearance": "Detective Comics #27"
-    },
-    {
-      "id": 2,
-      "name": "Superman",
-      "publisher": "DC Comics",
-      "alterEgo": "Kal-El",
-      "firstAppearance": "Action Comics #1"
-    },
-    {
-      "id": 3,
-      "name": "Flash",
-      "publisher": "DC Comics",
-      "alterEgo": "Jay Garrick",
-      "firstAppearance": "Flash Comics #1"
-    },
-    {
-      "id": 4,
-      "name": "Green Lantern",
-      "publisher": "DC Comics",
-      "alterEgo": "Alan Scott",
-      "firstAppearance": "All-American Comics #16"
-    },
-    {
-      "id": 5,
-      "name": "Green Arrow",
-      "publisher": "DC Comics",
-      "alterEgo": "Oliver Queen",
-      "firstAppearance": "More Fun Comics #73"
-    },
-    {
       "id": 6,
       "name": "Wonder Woman",
       "publisher": "DC Comics",
