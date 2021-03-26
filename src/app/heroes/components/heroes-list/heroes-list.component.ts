@@ -39,31 +39,42 @@ export class HeroesListComponent implements OnInit, OnDestroy {
 
   getAllHeroes = () => {
     this.parameterReset();
-    this.heroService.getAllHeroes().subscribe((heroes: Hero[]) => {
-      this.dataSource.data = heroes.reverse();
-      this.loading = false;
-    });
+    this.heroService.getAllHeroes().subscribe(
+      (heroes: Hero[]) => {
+        this.dataSource.data = heroes.reverse();
+        this.loading = false;
+      },
+      (error) => {
+        this.snackBarService.openSnackBar(error.message);
+      }
+    );
   };
 
   getSearchHeroes = (name: string) => {
     this.parameterReset();
-    setTimeout(() => {
-      this.subs = this.heroService
-        .getSearchHeroes(name)
-        .subscribe((heroes: Hero[]) => {
-          this.dataSource.data = heroes;
-          this.loading = false;
-          this.showAlertSearch(name);
-        });
-    }, 1000);
+    this.subs = this.heroService.getSearchHeroes(name).subscribe(
+      (heroes: Hero[]) => {
+        this.dataSource.data = heroes;
+        this.loading = false;
+        this.showAlertSearch(name);
+      },
+      (error) => {
+        this.snackBarService.openSnackBar(error.message);
+      }
+    );
   };
 
   deleteHero = (id: number) => {
     this.loading = true;
-    this.heroService.deleteHero(id).subscribe(() => {
-      this.getAllHeroes();
-      this.snackBarService.openSnackBar(TEXT_DELETE_SUCCESS);
-    });
+    this.heroService.deleteHero(id).subscribe(
+      () => {
+        this.getAllHeroes();
+        this.snackBarService.openSnackBar(TEXT_DELETE_SUCCESS);
+      },
+      (error) => {
+        this.snackBarService.openSnackBar(error.message);
+      }
+    );
   };
 
   clickDeleteHero = (id: number) => {

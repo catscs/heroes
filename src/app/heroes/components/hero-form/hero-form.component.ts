@@ -31,10 +31,15 @@ export class HeroFormComponent implements OnInit {
       this.id = params.id;
       if (this.id) {
         this.loading = true;
-        this.heroService.getHeroById(params.id).subscribe((hero: Hero) => {
-          this.hero = hero;
-          this.loading = false;
-        });
+        this.heroService.getHeroById(params.id).subscribe(
+          (hero: Hero) => {
+            this.hero = hero;
+            this.loading = false;
+          },
+          (error) => {
+            this.snackBarService.openSnackBar(error.message);
+          }
+        );
       }
     });
   }
@@ -45,17 +50,27 @@ export class HeroFormComponent implements OnInit {
 
   addHero = (hero: Hero) => {
     this.loading = true;
-    this.heroService.addHero(hero).subscribe(() => {
-      this.showSnackBar(ADD_HERO_SUCCESS);
-    });
+    this.heroService.addHero(hero).subscribe(
+      () => {
+        this.showSnackBar(ADD_HERO_SUCCESS);
+      },
+      (error) => {
+        this.snackBarService.openSnackBar(error.message);
+      }
+    );
   };
 
   editHero = (hero: Hero) => {
     if (this.id === undefined) return;
     this.loading = true;
-    this.heroService.editHero(hero, this.id).subscribe(() => {
-      this.showSnackBar(EDIT_HERO_SUCCESS);
-    });
+    this.heroService.editHero(hero, this.id).subscribe(
+      () => {
+        this.showSnackBar(EDIT_HERO_SUCCESS);
+      },
+      (error) => {
+        this.snackBarService.openSnackBar(error.message);
+      }
+    );
   };
 
   showSnackBar = (text: string) => {
