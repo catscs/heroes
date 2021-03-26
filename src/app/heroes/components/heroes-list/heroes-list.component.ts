@@ -1,8 +1,8 @@
-import { SnackBarService } from './../../../core/services/snack-bar.service';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs/internal/Subscription';
+import { SnackBarService } from '@core/services/snack-bar.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
-import { Subscription } from 'rxjs/internal/Subscription';
 import { Hero } from '@hero/models/hero.model';
 import { HeroService } from '@hero/services/hero.service';
 import { deleteAlert } from '@core/utils/alert';

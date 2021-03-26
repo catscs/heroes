@@ -1,9 +1,9 @@
-import { environment } from './../../../environments/environment';
-import { Hero } from '@hero/models/hero.model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/internal/Observable';
-import { filter, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+import { environment } from './../../../environments/environment';
+import { Hero } from '@hero/models/hero.model';
 
 @Injectable()
 export class HeroService {

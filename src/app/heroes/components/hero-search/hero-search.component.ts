@@ -1,4 +1,3 @@
-import { ThisReceiver } from '@angular/compiler';
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
