@@ -1,1 +1,6 @@
-<hr-form></hr-form>
+<mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
+<hr-form
+  *ngIf="id === undefined || (id && hero)"
+  (valueForm)="valueForm($event)"
+  [hero]="hero"
+></hr-form>

@@ -1,7 +1,11 @@
 mat-card {
   margin-top: 2em;
+  width: 30%;
   .hero-form {
     display: flex;
     flex-direction: column;
+  }
+  mat-form-field {
+    margin-bottom: 1em;
   }
 }

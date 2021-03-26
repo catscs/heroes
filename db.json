@@ -1,13 +1,6 @@
 {
   "heroes": [
     {
-      "id": 6,
-      "name": "Wonder Woman",
-      "publisher": "DC Comics",
-      "alterEgo": "Princess Diana",
-      "firstAppearance": "All Star Comics #8"
-    },
-    {
       "id": 7,
       "name": "Martian Manhunter",
       "publisher": "DC Comics",
@@ -99,11 +92,11 @@
       "firstAppearance": "X-Men #1"
     },
     {
-      "id": 20,
-      "name": "Silver Surfer",
+      "name": "Silver Surfer 111",
       "publisher": "Marvel Comics",
       "alterEgo": "Norrin Radd",
-      "firstAppearance": "The Fantastic Four #48"
+      "firstAppearance": "The Fantastic Four #48",
+      "id": 20
     }
   ]
 }

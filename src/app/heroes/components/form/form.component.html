@@ -1,35 +1,76 @@
 <h1>Hero</h1>
-<div fxLayout fxLayoutAlign="end center">
+<div fxLayout fxLayoutAlign="start center">
   <button mat-raised-button color="primary" routerLink="/heroes">Back</button>
 </div>
-
 <mat-card>
   <mat-card-header>
-    <mat-card-title>Create hero</mat-card-title>
+    <mat-card-title>{{ hero != null ? "Edit" : "Create" }} hero</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <form class="hero-form" novalidate>
+    <form
+      class="hero-form"
+      novalidate
+      [formGroup]="form"
+      (ngSubmit)="handleForm()"
+    >
       <mat-form-field>
         <input
           hrCapitalLetters
-          placeholder="Digite el nombre"
+          placeholder="Name"
           matInput
           type="text"
-          formControlName="title"
+          formControlName="name"
         />
+        <mat-error *ngIf="fm.name.hasError('required')">
+          Name is required
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <input
-          placeholder="Digite el precio"
+          placeholder="Publisher"
           matInput
-          type="number"
-          formControlName="price"
+          type="text"
+          formControlName="publisher"
         />
+        <mat-error *ngIf="fm.publisher.hasError('required')">
+          Publisher is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          placeholder="Alter ego"
+          matInput
+          type="text"
+          formControlName="alterEgo"
+        />
+        <mat-error *ngIf="fm.alterEgo.hasError('required')">
+          Alter ego is required
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          placeholder="First appearance"
+          matInput
+          type="text"
+          formControlName="firstAppearance"
+        />
+        <mat-error *ngIf="fm.firstAppearance.hasError('required')">
+          First appearance is required
+        </mat-error>
       </mat-form-field>
     </form>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-raised-button type="button">Create Hero</button>
+    <button
+      mat-raised-button
+      type="button"
+      (click)="handleForm()"
+      [disabled]="form.invalid"
+    >
+      {{ hero != null ? "Edit" : "Create" }}
+    </button>
   </mat-card-actions>
 </mat-card>

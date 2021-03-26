@@ -3,16 +3,6 @@
 <div fxLayout fxLayoutAlign="end center">
   <hr-hero-search (searchHero)="searchHero($event)"></hr-hero-search>
 </div>
-<div
-  *ngIf="message"
-  [ngClass]="{
-    alert: message,
-    'alert-success': message.type === 'success',
-    'alert-danger': message.type === 'error'
-  }"
->
-  {{ message.text }}
-</div>
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource">
     <ng-container matColumnDef="id">

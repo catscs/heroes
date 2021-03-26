@@ -1,11 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { SnackBarService } from './../../../core/services/snack-bar.service';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
+import { Subscription } from 'rxjs/internal/Subscription';
 import { Hero } from '@hero/models/hero.model';
 import { HeroService } from '@hero/services/hero.service';
-import { Message, Type } from '@hero/models/message.model';
 import { deleteAlert } from '@core/utils/alert';
-import { getMessage } from '@core/utils/factory';
+
 import {
   COLUMNS_TABLE_HERO,
   RESULT_SEARCH,
@@ -17,17 +18,20 @@ import {
   templateUrl: './heroes-list.component.html',
   styleUrls: ['./heroes-list.component.scss'],
 })
-export class HeroesListComponent implements OnInit {
+export class HeroesListComponent implements OnInit, OnDestroy {
+  private subs?: Subscription;
   displayedColumns: string[] = COLUMNS_TABLE_HERO;
   dataSource = new MatTableDataSource<Hero>();
   loading: boolean = false;
-  message?: Message;
 
   @ViewChild('scheduledOrdersPaginator') set paginator(pager: MatPaginator) {
     if (pager) this.dataSource.paginator = pager;
   }
 
-  constructor(private heroService: HeroService) {}
+  constructor(
+    private heroService: HeroService,
+    private snackBarService: SnackBarService
+  ) {}
 
   ngOnInit(): void {
     this.getAllHeroes();
@@ -35,9 +39,8 @@ export class HeroesListComponent implements OnInit {
 
   getAllHeroes = () => {
     this.parameterReset();
-    this.message = undefined;
     this.heroService.getAllHeroes().subscribe((heroes: Hero[]) => {
-      this.dataSource.data = heroes;
+      this.dataSource.data = heroes.reverse();
       this.loading = false;
     });
   };
@@ -45,11 +48,13 @@ export class HeroesListComponent implements OnInit {
   getSearchHeroes = (name: string) => {
     this.parameterReset();
     setTimeout(() => {
-      this.heroService.getSearchHeroes(name).subscribe((heroes: Hero[]) => {
-        this.dataSource.data = heroes;
-        this.loading = false;
-        this.message = getMessage(`${RESULT_SEARCH} ${name}`, Type.Success);
-      });
+      this.subs = this.heroService
+        .getSearchHeroes(name)
+        .subscribe((heroes: Hero[]) => {
+          this.dataSource.data = heroes;
+          this.loading = false;
+          this.showAlertSearch(name);
+        });
     }, 1000);
   };
 
@@ -57,7 +62,7 @@ export class HeroesListComponent implements OnInit {
     this.loading = true;
     this.heroService.deleteHero(id).subscribe(() => {
       this.getAllHeroes();
-      this.message = getMessage(TEXT_DELETE_SUCCESS, Type.Success);
+      this.snackBarService.openSnackBar(TEXT_DELETE_SUCCESS);
     });
   };
 
@@ -73,4 +78,15 @@ export class HeroesListComponent implements OnInit {
     this.dataSource.data = [];
     this.loading = true;
   };
+
+  showAlertSearch = (name: string) => {
+    this.snackBarService
+      .openSnackBar(`${RESULT_SEARCH} ${name}`, 'Reset search', 5000)
+      .onAction()
+      .subscribe(() => this.getAllHeroes());
+  };
+
+  ngOnDestroy(): void {
+    this.subs?.unsubscribe();
+  }
 }

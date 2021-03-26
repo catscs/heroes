@@ -25,6 +25,21 @@ export class HeroService {
       );
   };
 
+  getHeroById = (id: number): Observable<Hero> => {
+    const url = `${environment.apiUrl}/heroes/${id}`;
+    return this.http.get<Hero>(url);
+  };
+
+  addHero = (hero: Hero): Observable<void> => {
+    const url = `${environment.apiUrl}/heroes`;
+    return this.http.post<void>(url, { ...hero });
+  };
+
+  editHero = (hero: Hero, id: number): Observable<void> => {
+    const url = `${environment.apiUrl}/heroes/${id}`;
+    return this.http.put<void>(url, { ...hero });
+  };
+
   deleteHero = (id: number): Observable<void> => {
     const url = `${environment.apiUrl}/heroes/${id}`;
     return this.http.delete<void>(url);
