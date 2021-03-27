@@ -1,0 +1,12 @@
+version: "3"
+services:
+  web:
+    container_name: hero_frontend
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    working_dir: /usr/share/nginx/html
+    ports:
+      - "85:80"
+    volumes:
+      - ./docker/ngnix/conf.conf/:/etc/nginx/conf.d/conf.conf
