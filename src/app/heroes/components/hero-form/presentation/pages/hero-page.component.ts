@@ -10,11 +10,11 @@ import {
 } from '@core/utils/constants';
 
 @Component({
-  selector: 'hr-hero-form',
-  templateUrl: './hero-form.component.html',
-  styleUrls: ['./hero-form.component.scss'],
+  selector: 'hr-hero-page',
+  templateUrl: './hero-page.component.html',
+  styleUrls: ['./hero-page.component.scss'],
 })
-export class HeroFormComponent implements OnInit {
+export class HeroPageComponent implements OnInit {
   hero?: Hero;
   id?: number;
   loading: boolean = false;

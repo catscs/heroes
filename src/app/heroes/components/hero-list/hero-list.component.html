@@ -1,7 +1,10 @@
 <mat-progress-bar mode="indeterminate" *ngIf="loading"></mat-progress-bar>
 <h1>List Heroes</h1>
 <div fxLayout fxLayoutAlign="end center">
-  <hr-hero-search (searchHero)="searchHero($event)"></hr-hero-search>
+  <hr-hero-search
+    [resetSearch]="resetSearch"
+    (searchHero)="searchHero($event)"
+  ></hr-hero-search>
 </div>
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource">

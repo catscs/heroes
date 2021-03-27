@@ -1,3 +1,12 @@
+<button
+  *ngIf="resetSearch"
+  mat-raised-button
+  type="button"
+  (click)="handleChange()"
+>
+  Reset search
+</button>
+
 <mat-form-field>
   <mat-icon matPrefix>search</mat-icon>
   <input

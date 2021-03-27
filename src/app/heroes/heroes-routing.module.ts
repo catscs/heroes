@@ -1,15 +1,15 @@
-import { HeroFormComponent } from '@hero/components/hero-form/hero-form.component';
-import { HeroesListComponent } from '@hero/components/heroes-list/heroes-list.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HeroListComponent } from '@hero/components/hero-list/hero-list.component';
+import { HeroPageComponent } from '@hero/components/hero-form/presentation/pages/hero-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HeroesListComponent,
+    component: HeroListComponent,
   },
-  { path: 'form', component: HeroFormComponent },
-  { path: 'form/:id', component: HeroFormComponent },
+  { path: 'form', component: HeroPageComponent },
+  { path: 'form/:id', component: HeroPageComponent },
 ];
 
 @NgModule({

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'hr-hero-search',
@@ -6,6 +6,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./hero-search.component.scss'],
 })
 export class HeroSearchComponent {
+  @Input() resetSearch: boolean = false;
   @Output() searchHero = new EventEmitter<string>();
   search: string = '';
 

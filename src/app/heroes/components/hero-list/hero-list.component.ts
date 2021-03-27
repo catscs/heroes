@@ -14,15 +14,16 @@ import {
 } from '@core/utils/constants';
 
 @Component({
-  selector: 'hr-heroes-list',
-  templateUrl: './heroes-list.component.html',
-  styleUrls: ['./heroes-list.component.scss'],
+  selector: 'hr-hero-list',
+  templateUrl: './hero-list.component.html',
+  styleUrls: ['./hero-list.component.scss'],
 })
-export class HeroesListComponent implements OnInit, OnDestroy {
+export class HeroListComponent implements OnInit, OnDestroy {
   private subs?: Subscription;
   displayedColumns: string[] = COLUMNS_TABLE_HERO;
   dataSource = new MatTableDataSource<Hero>();
   loading: boolean = false;
+  resetSearch: boolean = false;
 
   @ViewChild('scheduledOrdersPaginator') set paginator(pager: MatPaginator) {
     if (pager) this.dataSource.paginator = pager;
@@ -88,13 +89,16 @@ export class HeroesListComponent implements OnInit, OnDestroy {
   parameterReset = () => {
     this.dataSource.data = [];
     this.loading = true;
+    this.resetSearch = false;
   };
 
   showAlertSearch = (name: string) => {
-    this.snackBarService
-      .openSnackBar(`${RESULT_SEARCH} ${name}`, 'Reset search', 5000)
-      .onAction()
-      .subscribe(() => this.getAllHeroes());
+    this.resetSearch = true;
+    this.snackBarService.openSnackBar(
+      `${RESULT_SEARCH} ${name}`,
+      'Close',
+      5000
+    );
   };
 
   ngOnDestroy(): void {
