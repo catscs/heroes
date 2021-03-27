@@ -11,11 +11,11 @@ help: ## Show this help message
 
 run: ## Start the containers
 ifdef JSON_SERVER_VERSION
-	U_ID=${UID} docker-compose up -d && npm run api_server
+	U_ID=${UID} docker-compose up -d --build && npm run api_server
 else
-	U_ID=${UID} docker-compose up -d && npm install json-server && npm run api_server
+	U_ID=${UID} docker-compose up -d --build && npm install json-server && npm run api_server
 endif
-	
+
 stop: ## Stop the containers
 	U_ID=${UID} docker-compose down
 
