@@ -8,4 +8,4 @@ Run `ng serve` for a dev server and `npm run api_server`. Navigate to `http://lo
 
 ## Production docker
 
-Run container `make run`, stop container `make stop`
+Run container `make run`, stop container `make stop` Navigate to `http://localhost:85/`.
