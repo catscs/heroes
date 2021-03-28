@@ -1,11 +1,6 @@
 <mat-nav-list>
-  <mat-list-item routerLinkActive="activeLink">
-    <mat-icon matListIcon>grid_view</mat-icon>
-    <a routerLink="/dashboard">Dashboard</a>
-  </mat-list-item>
-
-  <mat-list-item routerLinkActive="activeLink">
-    <mat-icon matListIcon>personal_injury</mat-icon>
-    <a routerLink="/heroes">Heroes</a>
+  <mat-list-item routerLinkActive="activeLink" *ngFor="let menu of listMenu">
+    <mat-icon matListIcon>{{ menu.icon }}</mat-icon>
+    <a [routerLink]="menu.url">{{ menu.title }}</a>
   </mat-list-item>
 </mat-nav-list>
